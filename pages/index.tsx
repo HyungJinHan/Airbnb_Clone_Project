@@ -4,7 +4,7 @@ import Header from "../components/Header";
 
 const Home: NextPage = () => {
   return (
-    <div className="">
+    <div className="selection:text-white selection:bg-[#FF5A5F]">
       <Head>
         <title>Airbnb Clone</title>
         <link rel="icon" href="/favicon.png" />
