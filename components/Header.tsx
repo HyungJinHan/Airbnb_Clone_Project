@@ -7,9 +7,11 @@ import {
   UserCircleIcon,
 } from "@heroicons/react/24/solid";
 import { GlobeAltIcon } from "@heroicons/react/24/outline";
+import "react-date-range/dist/styles.css"; // main style file
+import "react-date-range/dist/theme/default.css"; // theme css file
 
 const Header = () => {
-  const [searchInput, SetSearchInput] = useState<String>("");
+  const [searchInput, setSearchInput] = useState<string>("");
 
   return (
     <header className="sticky z-50 top-0 grid grid-cols-3 bg-white shadow-md py-5 px-3 md:px-7">
@@ -19,6 +21,8 @@ const Header = () => {
 
       <div className="flex items-center md:border-2 rounded-full py-2 md:shadow-sm">
         <input
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
           type="text"
           placeholder="Start your Search"
           className="flex-grow pl-5 bg-transparent outline-none text-base max-sm:text-sm text-gray-600 placeholder-gray-400"
@@ -35,6 +39,8 @@ const Header = () => {
           <UserCircleIcon className="h-6 cursor-pointer" />
         </div>
       </div>
+
+      {searchInput && <div></div>}
     </header>
   );
 };
