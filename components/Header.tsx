@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import airbnb from "../public/airbnb.png";
 import {
   Bars3Icon,
@@ -9,6 +9,8 @@ import {
 import { GlobeAltIcon } from "@heroicons/react/24/outline";
 
 const Header = () => {
+  const [searchInput, SetSearchInput] = useState<String>("");
+
   return (
     <header className="sticky z-50 top-0 grid grid-cols-3 bg-white shadow-md py-5 px-3 md:px-7">
       <div className="relative object-left object-contain flex items-center h-10 my-auto">
