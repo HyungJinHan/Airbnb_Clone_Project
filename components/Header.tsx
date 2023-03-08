@@ -9,9 +9,23 @@ import {
 import { GlobeAltIcon } from "@heroicons/react/24/outline";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
+import { DateRangePicker } from "react-date-range";
 
 const Header = () => {
   const [searchInput, setSearchInput] = useState<string>("");
+  const [startDate, setStartDate] = useState<Date>(new Date());
+  const [endDate, setEndDate] = useState<Date>(new Date());
+
+  const selectionRange = {
+    startDate: startDate,
+    endDate: endDate,
+    key: "selection",
+  };
+
+  const handleSelect = (ranges: any) => {
+    setStartDate(ranges.selection.startDate);
+    setEndDate(ranges.selection.endDate);
+  };
 
   return (
     <header className="sticky z-50 top-0 grid grid-cols-3 bg-white shadow-md py-5 px-3 md:px-7">
@@ -40,7 +54,16 @@ const Header = () => {
         </div>
       </div>
 
-      {searchInput && <div></div>}
+      {searchInput && (
+        <div className="flex flex-col col-span-3 mx-auto mt-5">
+          <DateRangePicker
+            ranges={[selectionRange]}
+            minDate={new Date()}
+            rangeColors={["#FF5A5F"]}
+            onChange={handleSelect}
+          />
+        </div>
+      )}
     </header>
   );
 };
