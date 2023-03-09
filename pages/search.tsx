@@ -6,7 +6,7 @@ import Header from "../components/Header";
 
 type Props = {};
 
-const search = (props: Props) => {
+const Search = (props: Props) => {
   const router = useRouter();
   const { location, startDate, endDate, numOfGuests } = router.query; // ES6 Destructuring 문법
   const formatterdStartDate = format(new Date(`${startDate}`), "dd MMMM yy");
@@ -40,4 +40,4 @@ const search = (props: Props) => {
   );
 };
 
-export default search;
+export default Search;
