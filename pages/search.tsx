@@ -11,9 +11,13 @@ const Search = (props: Props) => {
   console.log(router);
 
   const { location, startDate, endDate, numOfGuests } = router.query; // ES6 Destructuring 문법
-  const formatterdStartDate = format(new Date(`${startDate}`), "dd MMMM yy");
-  const formatterdEndDate = format(new Date(`${endDate}`), "dd MMMM yy");
-  const range = `${formatterdStartDate} ~ ${formatterdEndDate}`;
+  const formattedStartDate =
+    startDate && format(new Date(`${startDate}`), "dd MMMM yy");
+  // const formattedStartDate = format(new Date(`${startDate}`), "dd MMMM yy");
+  const formattedEndDate =
+    endDate && format(new Date(`${endDate}`), "dd MMMM yy");
+  // const formattedEndDate = format(new Date(`${endDate}`), "dd MMMM yy");
+  const range = `${formattedStartDate} ~ ${formattedEndDate}`;
 
   return (
     <div>
