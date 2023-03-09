@@ -29,6 +29,10 @@ const Header = () => {
     setEndDate(ranges.selection.endDate);
   };
 
+  const resetInput = () => {
+    setSearchInput("");
+  };
+
   return (
     <header className="sticky z-50 top-0 grid grid-cols-3 bg-white shadow-md py-5 px-3 md:px-7">
       <div className="relative object-left object-contain flex items-center h-10 my-auto">
@@ -79,9 +83,12 @@ const Header = () => {
             />
           </div>
 
-          <div>
-            <button></button>
-            <button></button>
+          {/* Emmet for React */}
+          <div className="flex">
+            <button onClick={resetInput} className="flex-grow text-gray-500">
+              Cancel
+            </button>
+            <button className="flex-grow text-[#FF5A5F]">Search</button>
           </div>
         </div>
       )}
