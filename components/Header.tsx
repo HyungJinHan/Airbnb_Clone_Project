@@ -11,12 +11,18 @@ import { GlobeAltIcon } from "@heroicons/react/24/outline";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
+import { useRouter } from "next/router";
 
-const Header = () => {
+type Props = {
+  placeholder: string;
+};
+
+const Header = ({ placeholder }: Props) => {
   const [searchInput, setSearchInput] = useState<string>("");
   const [startDate, setStartDate] = useState<Date>(new Date());
   const [endDate, setEndDate] = useState<Date>(new Date());
   const [numOfGuests, setNumOfGuests] = useState<number>(1);
+  const router = useRouter();
 
   const selectionRange = {
     startDate: startDate,
@@ -33,10 +39,27 @@ const Header = () => {
     setSearchInput("");
   };
 
+  const searchClick = () => {
+    router.push({
+      pathname: "/search",
+      query: {
+        location: searchInput,
+        startDate: startDate.toISOString(), // xxxx-xx-xx 형식으로 날짜 표현하는 방식
+        endDate: endDate.toISOString(),
+        numOfGuests,
+      },
+    });
+  };
+
   return (
     <header className="sticky z-50 top-0 grid grid-cols-3 bg-white shadow-md py-5 px-3 md:px-7">
       <div className="relative object-left object-contain flex items-center h-10 my-auto">
-        <Image src={airbnb} alt="airbnbIcon" className="w-36 cursor-pointer" />
+        <Image
+          src={airbnb}
+          alt="airbnbIcon"
+          className="w-36 cursor-pointer"
+          onClick={() => router.push("/")}
+        />
       </div>
 
       <div className="flex items-center md:border-2 rounded-full py-2 md:shadow-sm">
@@ -44,7 +67,7 @@ const Header = () => {
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
           type="text"
-          placeholder="Start your Search"
+          placeholder={placeholder || "Start your search"}
           className="flex-grow pl-5 bg-transparent outline-none text-base max-sm:text-sm text-gray-600 placeholder-gray-400"
         />
         <MagnifyingGlassIcon className="hidden md:inline-flex h-9 w-9 text-white rounded-full p-2 cursor-pointer md:mx-2 airbnbContentColor" />
@@ -88,7 +111,9 @@ const Header = () => {
             <button onClick={resetInput} className="flex-grow text-gray-500">
               Cancel
             </button>
-            <button className="flex-grow text-[#FF5A5F]">Search</button>
+            <button onClick={searchClick} className="flex-grow text-[#FF5A5F]">
+              Search
+            </button>
           </div>
         </div>
       )}
