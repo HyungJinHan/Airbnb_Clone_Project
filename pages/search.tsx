@@ -8,6 +8,8 @@ type Props = {};
 
 const Search = (props: Props) => {
   const router = useRouter();
+  console.log(router);
+
   const { location, startDate, endDate, numOfGuests } = router.query; // ES6 Destructuring 문법
   const formatterdStartDate = format(new Date(`${startDate}`), "dd MMMM yy");
   const formatterdEndDate = format(new Date(`${endDate}`), "dd MMMM yy");
