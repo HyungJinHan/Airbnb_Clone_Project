@@ -12,7 +12,6 @@ import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
 import { useRouter } from "next/router";
-import Link from "next/link";
 
 type Props = {
   placeholder?: string;
@@ -40,17 +39,17 @@ const Header = ({ placeholder }: Props) => {
     setSearchInput("");
   };
 
-  // const searchClick = () => {
-  //   router.push({
-  //     pathname: "/search",
-  //     query: {
-  //       location: searchInput,
-  //       startDate: startDate.toISOString(), // xxxx-xx-xx 형식으로 날짜 표현하는 방식
-  //       endDate: endDate.toISOString(),
-  //       numOfGuests,
-  //     },
-  //   });
-  // };
+  const searchClick = () => {
+    router.push({
+      pathname: "/search",
+      query: {
+        location: searchInput,
+        startDate: startDate.toISOString(), // xxxx-xx-xx 형식으로 날짜 표현하는 방식
+        endDate: endDate.toISOString(),
+        numOfGuests,
+      },
+    });
+  };
 
   return (
     <header className="sticky z-50 top-0 grid grid-cols-3 bg-white shadow-md py-5 px-3 md:px-7">
@@ -112,12 +111,9 @@ const Header = ({ placeholder }: Props) => {
             <button onClick={resetInput} className="flex-grow text-gray-500">
               Cancel
             </button>
-            <Link
-              href={`/search?location=${searchInput}&startDate=${startDate.toISOString()}&endDate=${endDate.toISOString()}&numOfGuests=${numOfGuests}`}
-              as={"/search"}
-            >
-              <button className="flex-grow text-[#FF5A5F]">Search</button>
-            </Link>
+            <button onClick={searchClick} className="flex-grow text-[#FF5A5F]">
+              Search
+            </button>
           </div>
         </div>
       )}
