@@ -43,7 +43,7 @@ const Header = ({ placeholder }: Props) => {
     router.push({
       pathname: "/search",
       query: {
-        location: searchInput,
+        searchLocation: searchInput,
         startDate: startDate.toISOString(), // xxxx-xx-xx 형식으로 날짜 표현하는 방식
         endDate: endDate.toISOString(),
         numOfGuests,

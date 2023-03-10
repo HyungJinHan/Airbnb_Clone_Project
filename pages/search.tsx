@@ -3,14 +3,17 @@ import { format } from "date-fns";
 import React from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import InfoCard from "../components/InfoCard";
 
-type Props = {};
+type Props = {
+  // searchResults: Array<string | number | any>;
+  searchResults: any;
+};
 
-const Search = (props: Props) => {
+const Search = ({ searchResults }: Props) => {
   const router = useRouter();
-  console.log(router);
 
-  const { location, startDate, endDate, numOfGuests } = router.query; // ES6 Destructuring 문법
+  const { searchLocation, startDate, endDate, numOfGuests } = router.query; // ES6 Destructuring 문법
   const formattedStartDate =
     startDate && format(new Date(`${startDate}`), "dd MMMM yy");
   // const formattedStartDate = format(new Date(`${startDate}`), "dd MMMM yy");
@@ -21,7 +24,9 @@ const Search = (props: Props) => {
 
   return (
     <div>
-      <Header placeholder={`${location} | ${range} | ${numOfGuests} guests`} />
+      <Header
+        placeholder={`${searchLocation} | ${range} | ${numOfGuests} guests`}
+      />
 
       <main className="flex">
         <section className="flex-grow pt-14 px-6">
@@ -29,7 +34,9 @@ const Search = (props: Props) => {
             300+ Stays - {range} - for {numOfGuests} guests
           </p>
 
-          <h1 className="text-3xl font-semibold mb-6">Stays in {location}</h1>
+          <h1 className="text-3xl font-semibold mb-6">
+            Stays in {searchLocation}
+          </h1>
 
           <div className="hidden lg:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap">
             <p className="searchPageButton">Cancellation Flexibility</p>
@@ -37,6 +44,21 @@ const Search = (props: Props) => {
             <p className="searchPageButton">Price</p>
             <p className="searchPageButton">Rooms and Beds</p>
             <p className="searchPageButton">More filters</p>
+          </div>
+
+          <div className="flex flex-col">
+            {searchResults.map((item: string | number | any) => (
+              <InfoCard
+                key={item.img}
+                img={item.img}
+                location={item.location}
+                title={item.title}
+                description={item.description}
+                star={item.star}
+                price={item.price}
+                total={item.total}
+              />
+            ))}
           </div>
         </section>
       </main>
@@ -47,3 +69,16 @@ const Search = (props: Props) => {
 };
 
 export default Search;
+
+export async function getServerSideProps() {
+  const searchResults = await fetch("https://www.jsonkeeper.com/b/5NPS").then(
+    (res) => res.json()
+  );
+  // 기존 url인 "https://links.papareact.com/isz"로 하게 되면 fetch 에러
+
+  return {
+    props: {
+      searchResults,
+    },
+  };
+}
