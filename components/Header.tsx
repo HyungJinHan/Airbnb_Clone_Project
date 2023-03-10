@@ -70,7 +70,7 @@ const Header = ({ placeholder }: Props) => {
           placeholder={placeholder || "Start your search"}
           className="flex-grow pl-5 bg-transparent outline-none text-base max-sm:text-sm text-gray-600 placeholder-gray-400"
         />
-        <MagnifyingGlassIcon className="hidden md:inline-flex h-9 w-9 text-white rounded-full p-2 cursor-pointer md:mx-2 airbnbContentColor" />
+        <MagnifyingGlassIcon className="hidden md:inline-flex h-9 w-9 text-white rounded-full p-2 cursor-pointer md:mx-2 airbnbBgColor" />
       </div>
 
       <div className="flex space-x-4 items-center justify-end text-gray-500 font-semibold">

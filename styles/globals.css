@@ -4,11 +4,11 @@
 
 @layer components {
   .airbnbBgColor {
-    @apply text-[#FF5A5F];
+    @apply bg-[#FF5A5F];
   }
 
-  .airbnbContentColor {
-    @apply bg-[#FF5A5F];
+  .airbnbTextColor {
+    @apply text-[#FF5A5F];
   }
 
   .searchPageButton {
