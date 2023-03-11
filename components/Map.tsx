@@ -29,7 +29,7 @@ const Map = ({ searchResults }: Props) => {
     <ReactMapGL
       {...viewport}
       mapStyle="mapbox://styles/hhj1210/clf3ltof8002j01ti5trrrro3"
-      mapboxAccessToken={process.env.mapbox_key}
+      mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API}
       onMove={(nextViewport: any) => setViewport(nextViewport.viewport)}
       // onViewportChange={(nextViewport: any) => setViewport(nextViewport)} -> error
     >
