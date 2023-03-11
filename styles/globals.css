@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+  * {
+    @apply selection:bg-[#FF5A5F] selection:text-white;
+  }
+
   .airbnbBgColor {
     @apply bg-[#FF5A5F];
   }
