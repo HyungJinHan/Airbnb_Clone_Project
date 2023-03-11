@@ -49,4 +49,28 @@
 
   <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=for-the-badge&logo=Visual Studio Code&logoColor=white">&nbsp;
   <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white">&nbsp;
-  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white">&nbsp;
+  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white">
+
+<br><br>
+
+# 2. 프로젝트 상세 내용
+
+<div align='center'>
+
+| Main                          |
+| ----------------------------- |
+| <img src="./public/main.gif"> |
+
+<br>
+
+| Search / Results                      |
+| ------------------------------------- |
+| <img src="./public/searchResult.gif"> |
+
+<br>
+
+| Map Box                         |
+| ------------------------------- |
+| <img src="./public/mapbox.gif"> |
+
+</div>
