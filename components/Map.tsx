@@ -8,6 +8,8 @@ type Props = {
 };
 
 const Map = ({ searchResults }: Props) => {
+  const [selectedLocation, setSelectedLocation] = useState<object | any>({});
+
   const coordinates = searchResults.map((result: string | number | any) => ({
     longitude: result.long,
     latitude: result.lat,
@@ -38,8 +40,29 @@ const Map = ({ searchResults }: Props) => {
             latitude={result.lat}
             // offset={[-10, -10]}
           >
-            <p className="text-2xl cursor-pointer animate-bounce">📍</p>
+            <p
+              role="img"
+              onClick={() => setSelectedLocation(result)}
+              className="text-3xl cursor-pointer animate-bounce"
+              aria-label="push-pin"
+            >
+              📍
+            </p>
           </Marker>
+
+          {selectedLocation.long === result.long ? (
+            <Popup
+              longitude={result.long}
+              latitude={result.lat}
+              onClose={() => setSelectedLocation({})}
+              closeOnClick={false} // -> true일 경우 popup 안뜸
+            >
+              {result.title}
+              {console.log(result.title)}
+            </Popup>
+          ) : (
+            false
+          )}
         </div>
       ))}
     </ReactMapGL>
