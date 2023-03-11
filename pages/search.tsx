@@ -8,7 +8,7 @@ import Map from "../components/Map";
 
 type Props = {
   // searchResults: Array<string | number | any>;
-  searchResults: any;
+  searchResults: Array<string | number>;
 };
 
 const Search = ({ searchResults }: Props) => {
@@ -63,8 +63,8 @@ const Search = ({ searchResults }: Props) => {
           </div>
         </section>
 
-        <section className="hidden xl:inline-flex">
-          <Map />
+        <section className="hidden xl:inline-flex xl:min-w-[600px]">
+          <Map searchResults={searchResults} />
         </section>
       </main>
 
