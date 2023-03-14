@@ -6,7 +6,7 @@
 
 <br>
 
-<a href='https://airbnb-clone-project-bay.vercel.app/'>
+<a href='https://airbnb-clone-project-bay.vercel.app/' target="_blank">
 <img width='70%' src="./public/airbnbMain.PNG"/>
 </a>
 
