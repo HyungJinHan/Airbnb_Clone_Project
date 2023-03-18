@@ -2,15 +2,19 @@
 
 <div align='center'>
 
-### **`NextJS`와 `TypeScript`, `Tailwind CSS`를 활용하여 Airbnb 사이트 클론 프로젝트입니다.**
-
-<br>
-
 <a href='https://airbnb-clone-project-bay.vercel.app/' target="_blank">
 <img width='50%' src="./public/airbnb.svg"/>
 </a>
 
 ### ▲ **이미지를 클릭하여 배포된 사이트를 방문해주세요!** ▲
+
+</div>
+
+<br>
+
+<div align='center'>
+
+### **`NextJS`와 `TypeScript`, `Tailwind CSS`를 활용하여 Airbnb 사이트 클론 프로젝트입니다.**
 
 </div>
 
