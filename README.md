@@ -7,7 +7,7 @@
 <br>
 
 <a href='https://airbnb-clone-project-bay.vercel.app/' target="_blank">
-<img width='70%' src="./public/airbnbMain.PNG"/>
+<img width='50%' src="./public/airbnb.svg"/>
 </a>
 
 ### ▲ **이미지를 클릭하여 배포된 사이트를 방문해주세요!** ▲
