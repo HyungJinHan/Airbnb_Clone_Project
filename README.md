@@ -1,6 +1,6 @@
 # Airbnb Clone Project
 
-<div align='center'>
+<div align="center">
 
 <a href='https://airbnb-clone-project-bay.vercel.app/' target="_blank">
 <img width='50%' src="./public/airbnb.svg"/>
